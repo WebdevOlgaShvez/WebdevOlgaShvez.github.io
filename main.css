@@ -34,6 +34,11 @@
     padding: 25px;
     font-size: 18px;
   }
+
+  a {
+    text-decoration: none;
+    color: darkslateblue;
+  }
   
   img {
     max-width: 100%;
@@ -92,9 +97,31 @@
   .hamburger {
     display: none;
   }
+
+  .bar1, .bar2, .bar3 {
+    width: 35px;
+    height: 5px;
+    background-color: #ffac4c;
+    margin: 6px 0;
+    transition: 0.4s;
+  }
+  
+  .active .bar1 {
+    transform: rotate(-45deg) translate(-9px, 6px) ;
+  }
+  
+  .active .bar2 {
+    opacity: 0;
+  }
+  
+  .active .bar3 {
+    transform: rotate(45deg) translate(-8px, -8px) ;
+  }
   
   section {
-    background-color: #ee9dd6;
+
+    background: rgb(238,174,202);
+    background: radial-gradient(circle, rgba(238,174,202,1) 0%, rgba(148,187,233,1) 100%);
     border-radius: 15px;
     box-shadow: 0 20px 25px rgba(153, 153, 153, 0.1);
     line-height: 1.5;
@@ -212,6 +239,7 @@
   
   .summary__subtitle {
     font-size: 30px;
+    color: rgb(180, 47, 158);
   }
   
   .summary__more {
@@ -242,22 +270,17 @@
   .contacts__link {
     border: 1px solid #d4d4d4;
     border-radius: 10px;
-    width: 46%;
+    width: 60%;
     transition: background-color .3s;
   }
   
   .contacts__link a {
-    padding: 10px 15px;
+    padding: 10px 10px;
   }
   
   .contacts__link:hover {
     background-color: #ffebd4;
     filter: drop-shadow(0 0 10px #ffdb8e);
-  }
-  
-  .contacts__place {
-    width: 100%;
-    margin-bottom: 25px;
   }
   
   .contacts__list a {
@@ -281,7 +304,7 @@
     font-size: 22px;
   }
   
-  .contacts__item__wrapper svg {
+  .contacts__item__wrapper img {
     margin-bottom: -3px;
   }
   
@@ -289,84 +312,10 @@
     margin-right: 20px;
   }
   
-  .contacts__item svg {
+  .contacts__item img {
     margin-right: 15px;
   }
   
-  .project-card {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding-top: 10px;
-  }
-  
-  .project-card:not(:last-child) {
-    border-bottom: 1px solid #d4d4d4;
-    margin-bottom: 20px;
-    padding-bottom: 30px;
-  }
-  
-  .project-img {
-    width: 50%;
-    position: relative;
-  }
-  
-  .project-img::after {
-    content: '';
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, .2);
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='451.847' height='451.847' fill='%23fff' style='enable-background:new 0 0 451.847 451.847' xml:space='preserve'%3E%3Cpath d='M225.923 354.706c-8.098 0-16.195-3.092-22.369-9.263L9.27 151.157c-12.359-12.359-12.359-32.397 0-44.751 12.354-12.354 32.388-12.354 44.748 0l171.905 171.915 171.906-171.909c12.359-12.354 32.391-12.354 44.744 0 12.365 12.354 12.365 32.392 0 44.751L248.292 345.449c-6.177 6.172-14.274 9.257-22.369 9.257z'/%3E%3C/svg%3E");
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: 50px;
-    opacity: 0;
-    transition: opacity .3s;
-    border-radius: 10px;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    cursor: pointer;
-    pointer-events: none;
-  }
-  
-  .project-link {
-    display: block;
-    font-size: 0;
-  }
-  
-  .project-img:hover.project-img::after {
-    opacity: 1;
-    backdrop-filter: blur(3px);
-    box-shadow: 0 20px 25px rgba(117, 117, 117, 0.1);
-  }
-  
-  .project-image {
-    border-radius: 10px;
-    overflow: hidden;
-    object-fit: cover;
-  }
-  
-  .project-info {
-    margin-left: 35px;
-    width: 45%;
-  }
-  
-  .project-title {
-    margin-top: 0;
-    font-size: 20px;
-  }
-  
-  .project-text {
-    margin-top: 30px;
-    margin-bottom: 30px;
-    font-size: 20px;
-  }
-  
-  .project-skills {
-    font-size: 20px;
-  }
   
   .experience__text {
     font-size: 22px;
@@ -403,113 +352,15 @@
     box-shadow: 0 20px 25px rgba(153, 153, 153, 0.1);
   }
   
-  .copyright, .footer__github {
+  .copyright {
     margin-right: 50px;
   }
   
-  .timeline {
-    position: relative;
-    margin: 0 auto;
-    width: 90%;
-  }
-  
-  .timeline-list {
-    list-style: none;
-    padding-left: 0;
-  }
-  
-  .timeline-item {
-    margin-bottom: 50px;
-    list-style-type: none;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-  }
-  
-  .point {
-    min-width: 20px;
-    height: 20px;
-    background-color: #ffca8e;
-    border-radius: 100%;
-    z-index: 2;
-    border: 3px #333333 solid;
-    position: relative;
-    left: 1px;
-  }
-  
-  .timeline-item .content {
-    width: 50%;
-    padding: 0 20px;
-  }
-  
-  .timeline-item .date {
-    width: 50%;
-    padding: 0 20px;
-    font-weight: normal;
-  }
-  
-  .timeline-item .date p {
-    background-color: #ffebd4;
-    max-width: 200px;
-    text-align: center;
-    padding: 5px 10px;
-    border-radius: 10px;
-  }
-  
-  .timeline-item .content p {
-    background-color: #ffebd4;
-    margin-top: 0;
-    text-align: center;
-    border-radius: 10px;
-    margin-bottom: 0;
-    padding: 7px 10px;
-    max-width: 200px;
-    margin-left: auto;
-  }
-  
-  .timeline::before {
-    content: "";
-    position: absolute;
-    height: 100%;
-    width: 3px;
-    left: 50%;
-    background-color: #333333;
-  }
-  
+ 
   .education__text {
     margin-top: 0;
     margin-bottom: 30px;
     font-size: 22px;
-  }
-  
-  .code-sample__text {
-    margin-top: 15px;
-    margin-bottom: 0;
-    font-size: 22px;
-  }
-  
-  pre {
-    padding-left: 50px;
-    background-color: #fff;
-    border-radius: 10px;
-    border: 1px solid #fff;
-    font-size: 20px;
-    line-height: 1.2;
-    padding: 0;
-    white-space: pre-wrap;
-    word-break: break-all;
-    margin: 0 auto;
-    margin-bottom: -25px;
-    max-width: 1000px;
-  }
-  
-  code {
-    border: 1px solid #d4d4d4;
-  }
-  
-  .hljs {
-    background: #f9f9f9 !important;
-    border-radius: 10px;
   }
   
   .language-level__text {
@@ -657,12 +508,7 @@
     .skills__list {
       display: block;
     }
-    .project-image {
-      height: 250px;
-    }
-    pre {
-      font-size: 16px;
-    }
+    
     .contacts__list {
       font-size: 20px;
     }
@@ -710,7 +556,7 @@
       padding-right: 0;
       font-size: 16px;
     }
-    .contacts__item svg {
+    .contacts__item img {
       margin-right: 10px;
       margin-bottom: -5px;
     }
@@ -719,13 +565,8 @@
       margin-right: 5px;
       margin-bottom: 15px;
     }
-    pre {
-      font-size: 14px;
-    }
-    .code-sample__text {
-      font-size: 18px;
-      margin-top: 0;
-    }
+   
+    
     .languages-item {
       font-size: 20px;
     }
@@ -761,7 +602,7 @@
     .header-wrapper {
       top: 60px;
     }
-    .copyright, .footer__github {
+    .copyright {
       margin-right: 25px;
     }
     .contacts__list {
@@ -769,15 +610,13 @@
       max-height: none;
       max-width: 290px;
     }
-    .contacts__place {
-      text-align: center;
-    }
+   
     .contacts__item {
       margin-bottom: 25px;
       padding-left: 15px;
       width: 100%;
     }
-    .contacts__item svg {
+    .contacts__item img {
       margin-right: 15px;
     }
     .summary {
@@ -799,68 +638,11 @@
       padding: 5px 10px;
       margin-bottom: 10px;
     }
-    .project-card {
-      flex-direction: column;
-    }
-    .project-img {
-      width: 100%;
-      margin-bottom: 10px;
-    }
-    .project-image {
-      width: 100%;
-    }
-    .project-info {
-      width: 100%;
-      margin-left: 0;
-    }
-    .project-text {
-      margin-top: 10px;
-      margin-bottom: 10px;
-    }
-    .project-title {
-      font-size: 18px;
-    }
-    .project-text {
-      font-size: 18px;
-    }
-    .project-skills {
-      font-size: 18px;
-    }
+    
     .experience__text {
       font-size: 18px;
     }
-    .timeline {
-      width: 100%;
-    }
-    .timeline-item {
-      margin-bottom: 0;
-    }
-    .timeline-item .content {
-      padding: 0 10px;
-      font-size: 12px;
-    }
-    .timeline-item .date {
-      padding: 0 10px;
-      font-size: 12px;
-    }
-    .timeline-item .content p {
-      padding: 7px 10px;
-    }
-    .pre {
-      font-size: 12px;
-    }
-    .hljs {
-      padding: 2px !important;
-      background: #f9f9f9 !important;
-    }
-    .code-wrapper {
-      padding-left: 2px;
-      padding-right: 2px;
-    }
-    .code-wrapper figure {
-      margin-right: 10px;
-      margin-left: 10px;
-    }
+   
     .languages-item {
       font-size: 16px;
     }
